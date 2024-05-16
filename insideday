@@ -1,0 +1,11 @@
+//@version=4
+
+strategy("id", overlay=true)
+//Defining the inside day
+id = high[1]>high[0] and low[1]<low[0]
+//Preparing exit condition
+rsiv=rsi(close,5)
+if id
+    strategy.entry("long",strategy.long)
+if rsiv>80
+    strategy.close("long")
