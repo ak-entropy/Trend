@@ -1,0 +1,14 @@
+//@version=4
+
+strategy("Bull Eng", overlay=true)
+//Defining the bulling engulfing pattern
+
+beuc = close[1]<open[1] and close>open[1] and open<close[1]
+
+
+//Preparing exit condition
+rsiv=rsi(close,2)
+if beuc
+    strategy.entry("long",strategy.long)
+if rsiv>90
+    strategy.close("long")
